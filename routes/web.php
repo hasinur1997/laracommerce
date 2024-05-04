@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -27,5 +28,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/store', function() {
     return Inertia::render('Store/Store');
 });
+
+Route::resource('products', ProductController::class);
+Route::resource('categories', ProductController::class);
+Route::resource('orders', ProductController::class);
 
 require __DIR__.'/auth.php';
